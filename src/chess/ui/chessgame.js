@@ -244,7 +244,7 @@ const ChessGameWrapper = (props) => {
 
 
     // get the gameId from the URL here and pass it to the chessGame component as a prop. 
-    const domainName = 'http://chesswithfriend.com'
+    const domainName = 'http://localhost:3000/'
     const color = React.useContext(ColorContext)
     const { gameid } = useParams()
     const [play] = useSound(chessMove);
@@ -256,7 +256,7 @@ const ChessGameWrapper = (props) => {
     React.useEffect(() => {
         socket.on("playerJoinedRoom", statusUpdate => {
             console.log("A new player has joined the room! Username: " + statusUpdate.userName + ", Game id: " + statusUpdate.gameId + " Socket id: " + statusUpdate.mySocketId)
-            if (socket.id !== statusUpdate.mySocketId) {
+            if (socket.id !== statusUpdate.mySocketId) { console.log("here")
                 setOpponentSocketId(statusUpdate.mySocketId)
             }
         })
@@ -344,7 +344,8 @@ const ChessGameWrapper = (props) => {
                   event.target.select()
               }}
               value = {domainName + "/game/" + gameid}
-              type = "text">
+                                type="text"
+                           disabled >
               </textarea>
             <br></br>
 

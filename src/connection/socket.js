@@ -1,9 +1,9 @@
 import io from 'socket.io-client'
 
-const URL = 'https://multiplayer-chess-game-app.herokuapp.com/' 
+const URL = 'http://localhost:8000/' 
 
 const socket = io(URL)
-
+// const socket = io.connect(URL, { secure: true, reconnection: true, rejectUnauthorized: false })
 var mySocketId
 // register preliminary event listeners here:
 
